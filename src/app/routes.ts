@@ -1,20 +1,35 @@
 import { Routes } from '@angular/router';
-import { FaqComponent } from './components/faq/faq.component';
-import { RegisterComponent } from './components/registr/register.component';
-import { AuthComponent } from './components/auth/auth.component';
-import { NewPasswComponent } from './components/new-passw/new-passw.component';
-import { ForgotPasswComponent } from './components/forgot-passw/forgot-passw.component';
-import { ProfileComponent } from './components/profile/profile.component';
 
 export const APP_ROUTES: Routes = [
-  { path: 'faq', component: FaqComponent },
+  {
+    path: 'faq',
+    loadChildren: () => import('./components/faq/faq.routes').then(m => m.default)
+  },
+  {
+    path: 'orders',
+    loadChildren: () => import('./components/order-history/order-history.routes').then(m => m.default)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./components/registr/register.routes').then(m => m.default)
+  },
+  {
+    path: 'new-passw',
+    loadChildren: () => import('./components/new-passw/new-passw.routes').then(m => m.default)
+  },
+  {
+    path: 'forgot-passw',
+    loadChildren: () => import('./components/forgot-passw/forgot-passw.routes').then(m => m.default)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./components/profile/profile.routes').then(m => m.default)
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./components/auth/auth.routes').then(m => m.default)
+  },
   { path: '', redirectTo: 'faq', pathMatch: 'full' },
-  { path: 'orders', component: FaqComponent }, // Временно используем FaqComponent
-  { path: 'register', component: RegisterComponent },
-  { path: 'auth', component: AuthComponent },
-  { path: 'new-passw', component: NewPasswComponent },
-  { path: 'forgot-passw', component: ForgotPasswComponent },
-  { path: 'profile', component: ProfileComponent },
 
 ];
 
