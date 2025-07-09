@@ -1,0 +1,54 @@
+<div class="auth-page">
+  <!-- Левое фоновое изображение -->
+  <div class="background-image left-image"></div>
+
+  <div class="auth-container">
+    <h1>Авторизация</h1>
+    <div class="auth-switch">
+      Еще нет аккаунта? <a routerLink="/register">Зарегистрироваться</a>
+    </div>
+
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Почта</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Введите свой почтовый адрес"
+        />
+      </div>
+
+      <div class="form-group password-group">
+        <label for="password">Пароль</label>
+        <div class="password-input-container">
+          <input
+            id="password"
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            placeholder="Введите пароль"
+          />
+          <button
+            type="button"
+            class="toggle-password"
+            (click)="togglePasswordVisibility()"
+          >
+            <ng-container *ngIf="!showPassword">
+              <!-- SVG для скрытого пароля (глаз закрыт) -->
+              <img src="assets/images/eyeopen.svg" alt="eye" />
+            </ng-container>
+            <ng-container *ngIf="showPassword">
+              <!-- SVG для видимого пароля (глаз открыт) -->
+              <img src="assets/images/eyeclosed.svg" alt="eye" />
+            </ng-container>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="auth-button">ВОЙТИ</button>
+    </form>
+  </div>
+
+  <!-- Правое фоновое изображение -->
+  <div class="background-image right-image"></div>
+</div>

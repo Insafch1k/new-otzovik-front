@@ -1,0 +1,123 @@
+<div class="page-container">
+  <div class="header">
+    <div class="menu-section">
+      <div class="logo">
+        <span>Логотип</span>
+      </div>
+      <div class="burger" [class.active]="isMenuOpen" (click)="toggleMenu()">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </div>
+      <div *ngIf="isMenuOpen">
+        <div class="menu-overlay" (click)="closeMenu()"></div>
+        <nav class="mobile-menu active" (click)="$event.stopPropagation()">
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <img src="assets/faq/home.svg" alt="Главная" class="menu-icon" />
+            Главная
+          </a>
+          <a routerLink="/orders" routerLinkActive="active">
+            <img
+              src="assets/faq/mobile.svg"
+              alt="История заказов"
+              class="menu-icon"
+            />
+            История заказов
+          </a>
+          <a routerLink="/faq" routerLinkActive="active">
+            <img src="assets/faq/chat.svg" alt="FAQ" class="menu-icon" />
+            FAQ
+          </a>
+          <a routerLink="/profile" routerLinkActive="active">
+            <img src="assets/faq/user.svg" alt="Профиль" class="menu-icon" />
+            Профиль
+          </a>
+        </nav>
+      </div>
+
+      <nav class="menu">
+        <a
+          routerLink="/label"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <img src="assets/faq/home.svg" alt="Главная" class="menu-icon" />
+          Главная
+        </a>
+        <a routerLink="/orders" routerLinkActive="active">
+          <img
+            src="assets/faq/mobile.svg"
+            alt="История заказов"
+            class="menu-icon"
+          />
+          История заказов
+        </a>
+        <a routerLink="/faq" routerLinkActive="active">
+          <img src="assets/faq/chat.svg" alt="FAQ" class="menu-icon" />
+          FAQ
+        </a>
+        <a routerLink="/profile" routerLinkActive="active">
+          <img src="assets/faq/user.svg" alt="Профиль" class="menu-icon" />
+          Профиль
+        </a>
+      </nav>
+    </div>
+
+    <div class="role-buttons">
+      <button
+        [class.active]="displayedFaqType === 'customer'"
+        (click)="switchFaqType('customer')"
+        class="role-button"
+      >
+        <img src="assets/faq/question.svg" alt="Заказчику" class="role-icon" />
+        <span>ЗАКАЗЧИКУ</span>
+      </button>
+
+      <button
+        [class.active]="displayedFaqType === 'executor'"
+        (click)="switchFaqType('executor')"
+        class="role-button"
+      >
+        <img src="assets/faq/question.svg" alt="Исполнителю" class="role-icon" />
+        <span>ИСПОЛНИТЕЛЮ</span>
+      </button>
+    </div>
+
+    <div class="user-section">
+      <div class="user-info">
+        <div class="role">
+          Роль: {{ currentRole === "customer" ? "Заказчик" : "Исполнитель" }}
+          <div class="nickname">{{ nickname }}</div>
+        </div>
+      </div>
+      <h1>ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h1>
+    </div>
+  </div>
+
+  <div class="faq-content">
+    <div class="faq-list">
+      <div
+        *ngFor="let item of getCurrentFaqItems()"
+        class="faq-item"
+        [class.open]="item.isOpen"
+        (click)="toggleQuestion(item)"
+      >
+        <div class="question">
+          {{ item.question }}
+          <img
+            [src]="item.isOpen ? 'assets/faq/vverh.svg' : 'assets/faq/vniz.svg'"
+            alt="arrow"
+            class="toggle-icon"
+          />
+        </div>
+        <div class="answer" *ngIf="item.isOpen">
+          {{ item.answer }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

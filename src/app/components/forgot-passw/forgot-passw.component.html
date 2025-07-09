@@ -1,0 +1,30 @@
+<p>forgot-passw works!</p>
+<div class="auth-page">
+  
+  <!-- Левое фоновое изображение -->
+  <div class="background-image left-image"></div>
+  
+  <div class="auth-container">
+    <h1>Забыли пароль</h1>
+    <div class="auth-switch">
+Введите свой адрес электронной почты для верификации, мы вышлем 4-значный код на ваш электронный адрес.
+    </div>
+    
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        
+      <div class="form-group">
+        <label for="email">Почта</label>
+        <input 
+          id="email" 
+          type="email" 
+          formControlName="email" 
+          placeholder="Введите свой почтовый адрес"
+        >
+      </div>
+      <button type="submit" class="auth-button">ПРОДОЛЖИТЬ</button>
+    </form>
+  </div>
+
+  <!-- Правое фоновое изображение -->
+  <div class="background-image right-image"></div>
+</div>
