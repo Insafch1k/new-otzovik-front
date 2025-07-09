@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { HostListener } from '@angular/core';
 
 interface FaqItem {
   question: string;

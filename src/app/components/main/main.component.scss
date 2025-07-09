@@ -1,0 +1,273 @@
+.main {
+  position: relative;
+  max-width: 1480px;
+  min-height: 100vh;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  margin: 27px auto 0;
+}
+
+.header {
+  position: absolute;
+}
+
+.content {
+  text-align: center;
+}
+
+.welcome {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 25px;
+  background-color: #ffffff;
+  padding: 80px 50px;
+  margin-top: 27px;
+}
+
+h1 {
+  font-family: Inter, sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #333b69cc;
+  text-align: left;
+  margin: 0;
+}
+
+h2 {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  vertical-align: middle;
+  color: #333b69cc;
+  text-align: left;
+  margin: 25px 0 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.section-title {
+  font-family: Inter, sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+}
+
+.role-btn {
+  width: 600px;
+  height: 240px;
+  border-radius: 25px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border: none;
+}
+
+.column-btn-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.customer-btn {
+  background-color: #6027ce;
+  margin-top: 50px;
+}
+
+.executor-btn {
+  background-color: #ff6b6b;
+  margin-top: 23px;
+}
+
+.role-title {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 100%;
+  color: #ffff;
+  margin: 0;
+}
+
+.role-text {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 100%;
+  color: #ffff;
+}
+
+.role-img {
+  height: 240px;
+  width: 200px;
+}
+
+.args {
+  margin-top: 80px;
+}
+
+.args-cards {
+  display: flex;
+  gap: 15px;
+}
+
+.args-card {
+  width: 470px;
+  height: 470px;
+  border-radius: 25px;
+  background-color: #ffffff;
+}
+
+.args-card-title {
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  vertical-align: middle;
+  color: #333b69;
+}
+
+.args-card-text {
+  font-family: Inter, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  color: #333b69;
+}
+
+.offers-cards {
+  display: flex;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+.offers-card {
+  width: 470px;
+  height: 230px;
+  border-radius: 25px;
+  padding: 50px 36px 0;
+}
+
+.offers-card-1 {
+  background-color: #ffffff;
+}
+
+.offers-card-2 {
+  background-color: #d3d3ff;
+}
+
+.offers-card-3 {
+  background-color: #5454fe;
+}
+
+.offers-card-title {
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  vertical-align: middle;
+  color: #333b69;
+}
+
+.offers-card-text {
+  font-family: Inter, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  color: #333b69;
+  margin-top: 40px;
+}
+
+.offers-card-text-3 {
+  color: #ffffff;
+}
+
+.platforms {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.platforms-cards {
+  display: flex;
+  gap: 115px;
+  margin-top: 120px;
+}
+
+.platform-card {
+  background-color: #f4f4ff;
+  border: 1px solid #0000001a;
+  outline: 30px solid #ffff;
+  width: 400px;
+  height: 258px;
+  border-radius: 15px;
+}
+
+.platform-title {
+  font-family: Inter, sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #333b69;
+}
+
+.yandex-card {
+  rotate: 10deg;
+}
+
+.twogis-card {
+  rotate: -10deg;
+}
+
+.income {
+  margin: 124px 0;
+}
+
+.income-cards {
+  display: flex;
+  gap: 15px;
+}
+
+.income-card {
+  width: 470px;
+  height: 470px;
+  background-color: #ffffff;
+  border-radius: 25px;
+}
+
+.income-card-title {
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  vertical-align: middle;
+  color: #333b69;
+}
+
+.income-card-text {
+  font-family: Inter, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 100%;
+  text-align: center;
+  color: #333b69;
+}

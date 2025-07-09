@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HostListener } from '@angular/core';
 import { FaqComponent } from "../faq/faq.component";
+import { HeaderComponent } from '../header/header.component';
 
 
 interface FaqItem {
@@ -11,7 +12,7 @@ interface FaqItem {
 
 @Component({
   selector: 'app-order-history',
-  imports: [CommonModule, RouterLink, RouterLinkActive, FaqComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive, FaqComponent, HeaderComponent],
   standalone: true,
   templateUrl: './order-history.component.html',
   styleUrl: './order-history.component.scss'
