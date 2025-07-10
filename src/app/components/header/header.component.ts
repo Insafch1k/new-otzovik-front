@@ -20,15 +20,13 @@ export class HeaderComponent {
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
-    // Если маршрут /main, заголовок всегда раскрыт
     if (this.router.url === '/main') {
-      this.isFixed = false;
+      this.isFixed = true;
       return;
     }
 
-    // Логика для других маршрутов
-    if (this.router.url === '/') {
-      this.isFixed = true;
+    if (this.router.url === '/main') {
+      this.isFixed = false;
       return;
     }
 
@@ -41,11 +39,6 @@ export class HeaderComponent {
   }
 
   private checkRoute() {
-    // Если маршрут /main, заголовок всегда раскрыт
-    if (this.router.url === '/main') {
-      this.isFixed = false;
-    } else {
-      this.isFixed = this.router.url === '/';
-    }
+    this.isFixed = this.router.url === '/main';
   }
 }

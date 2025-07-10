@@ -4,24 +4,31 @@
   min-height: 100vh;
   padding: 30px 20px;
   box-sizing: border-box;
-  margin: 27px auto 0;
+  margin: 0 auto 0;
+  background: repeating-linear-gradient(
+    0deg,
+    #f5f7fa 500px,
+    #eeeeff 400px,
+    #eeeeff 400px,
+    #f5f7fa 500px
+  );
 }
 
 .header {
   position: absolute;
+  margin-top: 27px;
 }
 
 .content {
   text-align: center;
 }
 
-.welcome {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-radius: 25px;
-  background-color: #ffffff;
-  padding: 80px 50px;
-  margin-top: 27px;
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
 }
 
 h1 {
@@ -36,7 +43,17 @@ h1 {
   margin: 0;
 }
 
-h2 {
+.welcome {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 25px;
+  background-color: #ffffff;
+  padding: 80px 50px;
+  margin-top: 27px;
+  z-index: 0;
+}
+
+.welcome-text {
   font-family: Inter, sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -47,24 +64,13 @@ h2 {
   margin: 25px 0 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-}
-
 .section-title {
   font-family: Inter, sans-serif;
   font-weight: 800;
   font-size: 36px;
   line-height: 100%;
   text-transform: uppercase;
-}
-
-p {
-  margin: 0;
+  color: #333b69cc;
 }
 
 .role-btn {
@@ -74,11 +80,14 @@ p {
   display: grid;
   grid-template-columns: 1fr auto;
   border: none;
+  cursor: pointer;
+  padding: 30px;
 }
 
 .column-btn-1 {
   display: flex;
   flex-direction: column;
+  max-height: 180px;
   justify-content: space-between;
 }
 
@@ -99,6 +108,7 @@ p {
   line-height: 100%;
   color: #ffff;
   margin: 0;
+  text-align: start;
 }
 
 .role-text {
@@ -107,20 +117,89 @@ p {
   font-size: 22px;
   line-height: 100%;
   color: #ffff;
+  text-align: start;
+  max-width: 343px;
 }
 
 .role-img {
   height: 240px;
   width: 200px;
+  bottom: 0;
+  right: 0;
+}
+
+.colummn-2 {
+  display: flex;
+  justify-content: center;
+}
+
+.phone {
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+}
+
+.phone-img {
+  position: relative;
+  width: 370px;
+  height: 760px;
+}
+
+.phone::after {
+  content: "";
+  position: absolute;
+  background: url("../../../assets/Main/Welcome/Shadow.svg") no-repeat;
+  object-fit: cover;
+  width: 424px;
+  height: 67px;
+  bottom: -10px;
+  right: 40px;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.fivestars-img {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  z-index: 3;
+  left: 122px;
+}
+
+.fivestars-img-top {
+  top: 76px;
+}
+
+.fivestars-img-middle {
+  bottom: 286px;
+}
+
+.fivestars-img-bottom {
+  bottom: 10px;
 }
 
 .args {
   margin-top: 80px;
+  display: grid;
+  grid-template-areas:
+    "title . cards"
+    "cards cards cards";
+  grid-template-rows: auto 1fr;
+  min-height: 650px;
+}
+
+.args-title {
+  grid-area: title;
+  max-width: 429px;
+  text-align: start;
 }
 
 .args-cards {
+  grid-area: cards;
   display: flex;
   gap: 15px;
+  position: relative;
+  align-items: flex-end;
 }
 
 .args-card {
@@ -147,6 +226,29 @@ p {
   text-align: center;
   vertical-align: middle;
   color: #333b69;
+  margin-top: 40px;
+}
+
+.trust-card {
+  margin-bottom: 90px;
+}
+
+.conversion-card {
+  margin-bottom: 180px;
+}
+
+.offers {
+  margin-top: 100px;
+}
+
+.order-title {
+  margin-top: 0;
+  text-align: end;
+}
+
+.offer-title {
+  text-align: start;
+  max-width: 435px;
 }
 
 .offers-cards {
@@ -163,7 +265,16 @@ p {
 }
 
 .offers-card-1 {
+  position: relative;
   background-color: #ffffff;
+}
+
+.robothand-img {
+  position: absolute;
+  bottom: -30px;
+  left: -100px;
+  height: auto;
+  pointer-events: none;
 }
 
 .offers-card-2 {
@@ -172,6 +283,17 @@ p {
 
 .offers-card-3 {
   background-color: #5454fe;
+  position: relative;
+  z-index: 1;
+}
+
+.darkstar-img {
+  position: absolute;
+  top: -140px;
+  right: -140px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .offers-card-title {
@@ -239,12 +361,28 @@ p {
 }
 
 .income {
-  margin: 124px 0;
+  margin: 154px 0;
+  display: grid;
+  grid-template-areas:
+    "cards . title"
+    "cards cards cards";
+  grid-template-rows: auto 1fr;
+}
+
+.income-title {
+  grid-area: title;
+  text-align: end;
+  max-width: 450px;
+  display: flex;
+  justify-self: end;
 }
 
 .income-cards {
+  grid-area: cards;
   display: flex;
   gap: 15px;
+  position: relative;
+  align-items: flex-end;
 }
 
 .income-card {
@@ -252,6 +390,37 @@ p {
   height: 470px;
   background-color: #ffffff;
   border-radius: 25px;
+  padding: 0 61px;
+}
+
+.income-card-1 {
+  margin-bottom: 180px;
+  position: relative;
+}
+
+.lightstar-img {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lightstar-img-card-1 {
+  bottom: -120px;
+  left: -120px;
+}
+
+.income-card-2 {
+  margin-bottom: 90px;
+}
+
+.income-card-3 {
+  position: relative;
+}
+
+.lightstar-img-card-3 {
+  top: -120px;
+  left: -120px;
 }
 
 .income-card-title {
@@ -270,4 +439,5 @@ p {
   line-height: 100%;
   text-align: center;
   color: #333b69;
+  margin-top: 40px;
 }

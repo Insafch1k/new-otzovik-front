@@ -51,11 +51,11 @@
 
       li {
         display: flex;
-        align-items: center; /* Вертикальное выравнивание элементов */
+        align-items: center; 
 
         a {
           display: flex;
-          align-items: center; /* Центрирование картинки и текста по высоте */
+          align-items: center; 
           text-decoration: none;
           color: #333;
           font-family: Inter, sans-serif;
@@ -65,7 +65,7 @@
           img {
             width: 21px;
             height: 21px;
-            margin-right: 29px; /* Промежуток 29px между картинкой и текстом */
+            margin-right: 29px;
           }
 
           &.active {
@@ -114,7 +114,7 @@
     .title {
       font-family: Inter, sans-serif;
       font-weight: 600;
-      font-size: 20px;
+      font-size: 24px;
       color: #333b69cc;
     }
   }
@@ -133,26 +133,25 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      width: 600px;
 
       li {
         display: flex;
-        align-items: center; /* Вертикальное выравнивание элементов */
+        align-items: center; 
 
         a {
           display: flex;
-          align-items: center; /* Центрирование картинки и текста по высоте */
+          align-items: center;
           text-decoration: none;
           color: #333;
           font-family: Inter, sans-serif;
           font-weight: 400;
-          font-size: 16px;
+          font-size: 24px;
           padding: 5px 10px;
 
           img {
-            width: 21px;
-            height: 21px;
-            margin-right: 29px; /* Промежуток 29px между картинкой и текстом */
+            width: 25px;
+            height: 25px;
+            margin-right: 20px;
           }
 
           &.active {

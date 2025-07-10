@@ -13,7 +13,7 @@
         <div class="menu-overlay" (click)="closeMenu()"></div>
         <nav class="mobile-menu active" (click)="$event.stopPropagation()">
           <a
-            routerLink="/"
+            routerLink="/main"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
           >
@@ -41,7 +41,7 @@
 
       <nav class="menu">
         <a
-          routerLink="/label"
+          routerLink="/main"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
         >
@@ -82,7 +82,11 @@
         (click)="switchFaqType('executor')"
         class="role-button"
       >
-        <img src="assets/faq/question.svg" alt="Исполнителю" class="role-icon" />
+        <img
+          src="assets/faq/question.svg"
+          alt="Исполнителю"
+          class="role-icon"
+        />
         <span>ИСПОЛНИТЕЛЮ</span>
       </button>
     </div>
