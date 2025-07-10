@@ -1,32 +1,61 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PasswordChangeService } from './forgot-passw.service';
+import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-forgot-passw',
-  imports: [ReactiveFormsModule],
   templateUrl: './forgot-passw.component.html',
-  styleUrl: './forgot-passw.component.scss'
+  styleUrls: ['./forgot-passw.component.scss'],
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule],
 })
 export class ForgotPasswComponent {
-  authForm!: FormGroup;
+  forgotForm: FormGroup;
+  submitted = false;
+  successMessage = '';
+  errorMessage = '';
+  loading = false;
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    this.authForm = this.fb.group({
+  constructor(
+    private fb: FormBuilder,
+    private passwordChangeService: PasswordChangeService,
+    private router: Router
+  ) {
+    this.forgotForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
     });
   }
 
-  onSubmit(): void {
-    if (this.authForm.valid) {
-      console.log('Форма отправлена:', this.authForm.value);
+  get email() {
+    return this.forgotForm.get('email');
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.successMessage = '';
+    this.errorMessage = '';
+
+    if (this.forgotForm.invalid) {
+      return;
     }
+    this.loading = true;
+
+    this.passwordChangeService.sendResetLink(this.email?.value).subscribe({
+      next: () => {
+        this.successMessage =
+          'Проверьте вашу почту — мы отправили ссылку для восстановления пароля.';
+        this.loading = false;
+      },
+      error: (err: { error: { message: string; }; }) => {
+        this.errorMessage =
+          err?.error?.message ||
+          'Ошибка при отправке письма. Попробуйте ещё раз.';
+        this.loading = false;
+      },
+    });
   }
 }
-

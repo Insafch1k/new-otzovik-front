@@ -1,0 +1,128 @@
+<div class="header" [class.hidden]="isFixed">
+  <div class="site-title"><p class="title">Otzivi</p></div>
+  <nav class="navigation">
+    <ul>
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <img
+            [src]="
+              isActive('/')
+                ? '/assets/Header/active/main.svg'
+                : '/assets/Header/inactive/main.svg'
+            "
+            alt="Иконка главной страницы"
+          />
+          Главная
+        </a>
+      </li>
+      <li>
+        <a routerLink="/orders" routerLinkActive="active">
+          <img
+            [src]="
+              isActive('/orders')
+                ? '/assets/Header/active/orders.svg'
+                : '/assets/Header/inactive/orders.svg'
+            "
+            alt="Иконка страницы истории заказов"
+          />
+          История заказов
+        </a>
+      </li>
+      <li>
+        <a routerLink="/faq" routerLinkActive="active">
+          <img
+            [src]="
+              isActive('/faq')
+                ? '/assets/Header/active/faq.svg'
+                : '/assets/Header/inactive/faq.svg'
+            "
+            alt="Иконка FAQ страницы"
+          />
+          FAQ
+        </a>
+      </li>
+      <li>
+        <a routerLink="/profile" routerLinkActive="active">
+          <img
+            [src]="
+              isActive('/profile')
+                ? '/assets/Header/active/profile.svg'
+                : '/assets/Header/inactive/profile.svg'
+            "
+            alt="Иконка страницы профиля"
+          />
+          Профиль
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="header-fixed" [class.visible]="isFixed">
+  <div class="site-title">
+    <p class="title">Otzivi</p>
+  </div>
+  <nav class="navigation">
+    <ul>
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <img
+            [src]="
+              isActive('/')
+                ? '/assets/Header/active/main.svg'
+                : '/assets/Header/inactive/main.svg'
+            "
+            alt="Иконка главной страницы"
+          />
+          Главная
+        </a>
+      </li>
+      <li>
+        <a routerLink="/orders" routerLinkActive="active">
+          <img
+            [src]="
+              isActive('/orders')
+                ? '/assets/Header/active/orders.svg'
+                : '/assets/Header/inactive/orders.svg'
+            "
+            alt="Иконка страницы истории заказов"
+          />
+          История заказов
+        </a>
+      </li>
+      <li>
+        <a routerLink="/faq" routerLinkActive="active">
+          <img
+            [src]="
+              isActive('/faq')
+                ? '/assets/Header/active/faq.svg'
+                : '/assets/Header/inactive/faq.svg'
+            "
+            alt="Иконка FAQ страницы"
+          />
+          FAQ
+        </a>
+      </li>
+      <li>
+        <a routerLink="/profile" routerLinkActive="active">
+          <img
+            [src]="
+              isActive('/profile')
+                ? '/assets/Header/active/profile.svg'
+                : '/assets/Header/inactive/profile.svg'
+            "
+            alt="Иконка страницы профиля"
+          />
+          Профиль
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
