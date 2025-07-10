@@ -110,11 +110,11 @@
                     display: flex;
                     flex-direction: column;
                     align-items: stretch;
-                    background: rgba(245, 247, 250, 1);
-                    border-radius: 18px;
-                    padding: 12px;
-                    width: 172px; // можешь адаптировать под свой контейнер
-                    box-shadow: 0 0 0 1px #e0e0e0;
+                    background: rgba(245, 247, 250, 1); // Общий фон
+                    border-radius: 18px; // Радиусы
+                    padding: 12px; // Паддинг
+                    width: 172px; // Ширина
+                    box-shadow: 0 0 0 1px #e0e0e0; // Тень
                 
                     // Верхняя часть с p и img
                     .top {
@@ -124,44 +124,45 @@
                         margin-bottom: 8px;
                 
                         p {
-                            background: white;
-                            border-radius: 12px;
-                            padding: 15px 17px;
+                            background: white; // Белый фон для p
+                            border-radius: 12px; // Радиусы
+                            padding: 15px 17px; // Паддинг
                             font-size: 16px;
                             font-weight: 500;
                             margin: 0;
                             color: rgba(0, 0, 0, 1);
-                            border: 1px solid rgba(0, 0, 0, 0.1);
+                            border: 1px solid rgba(0, 0, 0, 0.1); // Граница
                         }
                 
                         img {
                             width: 56px;
                             height: 56px;
-                            border-radius: 15px;
-                            object-fit: cover;
+                            border-radius: 15px; // Радиусы
+                            object-fit: cover; // Сохранение пропорций изображения
                         }
                     }
                 
                     button {
-                        background: rgba(84, 84, 254, 1);
-                        color: white;
-                        border: none;
-                        border-radius: 14px;
-                        padding: 15px 43px;
+                        background: rgba(84, 84, 254, 1); // Синий фон
+                        color: white; // Белый текст
+                        border: none; // Без границ
+                        border-radius: 14px; // Радиусы
+                        padding: 15px 43px; // Паддинг
                         font-size: 16px;
                         font-weight: 500;
                         cursor: pointer;
-                        transition: background 0.3s;
+                        transition: background 0.3s; // Анимация при hover
                 
                         &:hover {
-                            background: #4a47e0;
+                            background: #4a47e0; // Изменение фона при hover
                         }
                 
                         &:active {
-                            background: #3a38c0;
+                            background: #3a38c0; // Изменение фона при active
                         }
                     }
                 }
+                
                 .yandex {
                     display: flex;
                     flex-direction: column;
@@ -537,5 +538,109 @@
         }
     }
 }
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(245, 247, 250, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    .add-org{
+        width: 965px;
+        height: 269px;
+        background-color: rgba(255, 255, 255, 1);
+        border: 1px solid rgba(203, 202, 215, 1);
+        border-radius: 25px;
+        position: relative;
+    
+        img {
+            width: 25px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease, width 0.3s ease;
+
+            &:hover {
+                width: 28px;
+                transform: rotate(90deg);
+            }
+        }
+    
+        .module{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            padding: 0 40px;
+            margin-top: 70px;
+            
+    
+            p {
+                font-size: 16px;
+                font-weight: 500;
+                color: rgba(151, 148, 170, 1);
+                margin-bottom: 10px;
+            }
+    
+            .error {
+                color: red;
+                font-size: 14px;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+    
+            input {
+                width: 100%;
+                height: 40px;
+                border-radius: 10px;
+                border: 1px solid rgba(203, 202, 215, 1);
+                margin-bottom: 20px;
+                padding: 0 10px;
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+    
+    
+            .buttons{
+                display: flex;
+                align-items: center;
+                gap: 39px;
+                
+                button {
+                    width: 423px;
+                    height: 50px;
+                    border-radius: 10px;
+                    border: none;
+                    color: rgba(255, 255, 255, 1);
+                    cursor: pointer;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+    
+    
+                .left {
+                    background-color: rgba(203, 201, 215, 1);
+                }
+    
+                .right {
+                    background-color: rgba(84, 84, 254, 1);
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                    &:not([disabled]) {
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 

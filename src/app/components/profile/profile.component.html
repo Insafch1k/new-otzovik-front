@@ -71,103 +71,60 @@
                     </div>
                 </div>
             </div>
-            <div class="left-top-three-part">
+            <div class="left-top-three-part"> 
                 <p>Баланс</p>
                 <div class="menu">
-                    <p>530 ₽</p> 
-                    <button>Пополнить</button>
+                    <p *ngIf="balance !== null; else loadingBalance">{{ balance }} ₽</p> 
+                    <ng-template #loadingBalance><p>Загрузка...</p></ng-template>
+                    <button (click)="openTopUpModal()">Пополнить</button>
                 </div>
             </div>
         </div>
         <div class="left-bottom-part">
             <p class="title">Активные заказы</p>
-            <div class="menu">
-                <p class="number">1</p>
-                <img class="service"  src="assets/images/profile/TwoGis.webp" alt="">
-                <div class="object">
-                    <p class="name">ТатМак Премиум</p>
-                    <p class="date">01 Янв 2025</p>
+            
+            <div *ngFor="let order of orders; index as i" class="menu">
+              <p class="number">{{ i + 1 }}</p>
+              <img class="service" src="assets/images/profile/TwoGis.webp" alt="">
+              
+              <div class="object">
+                <p class="name">{{ order.business_name }}</p>
+                <p class="date">{{ order.created_at | date: 'dd MMM yyyy' }}</p>
+              </div>
+          
+              <div class="data">
+                <p class="progress">Выполнено: {{ order.number_completed_tasks }}/{{ order.task_count }}</p>
+                <p class="adress">{{ order.address }}</p>
+              </div>
+          
+              <div class="rating">
+                <div class="rate-stars">
+                  <p class="rate">{{ order.rate | number: '1.2-2' }}</p>
+                  <div class="stars">
+                    <ng-container *ngFor="let star of starsMap[order.id]; let j = index">
+                      <svg width="17.4" height="16.62" viewBox="0 0 24 22">
+                        <defs>
+                          <linearGradient id="grad{{order.id}}-{{j}}" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" [attr.stop-color]="star.leftColor" />
+                            <stop offset="50%" [attr.stop-color]="star.leftColor" />
+                            <stop offset="50%" [attr.stop-color]="star.rightColor" />
+                            <stop offset="100%" [attr.stop-color]="star.rightColor" />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          [attr.fill]="'url(#grad' + order.id + '-' + j + ')'"
+                          d="M12 0L15.09 7.36L23.18 8.51L17.09 13.97L18.18 22L12 18.18L5.82 22L6.91 13.97L0.82 8.51L8.91 7.36L12 0Z"
+                        />
+                      </svg>
+                    </ng-container>
+                  </div>
                 </div>
-                <div class="data">
-                    <p class="progress">Выполнено: 5/10</p>
-                    <p class="adress">ул. Николая Ершова, 4/2, Казань</p>
-                </div>
-                <div class="rating">
-                    <div class="rate-stars">
-                      <p class="rate">{{ rating | number: '1.2-2' }}</p>
-                      <div class="stars">
-                        <ng-container *ngFor="let star of stars; let i = index">
-                          <svg
-                            width="17.4"
-                            height="16.62"
-                            viewBox="0 0 24 22"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <defs>
-                              <linearGradient id="grad{{i}}" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" [attr.stop-color]="star.leftColor" />
-                                <stop offset="50%" [attr.stop-color]="star.leftColor" />
-                                <stop offset="50%" [attr.stop-color]="star.rightColor" />
-                                <stop offset="100%" [attr.stop-color]="star.rightColor" />
-                              </linearGradient>
-                            </defs>
-                            <path
-                              [attr.fill]="'url(#grad' + i + ')'"
-                              d="M12 0L15.09 7.36L23.18 8.51L17.09 13.97L18.18 22L12 18.18L5.82 22L6.91 13.97L0.82 8.51L8.91 7.36L12 0Z"
-                            />
-                          </svg>
-                        </ng-container>
-                      </div>
-                    </div>
-                    <p class="summa">387 оценок</p>
-                </div>
-                  
-                  
-                <p class="count">150 ₽/шт</p>
+                <p class="summa">{{ order.rate_count }} оценок</p>
+              </div>
+              <p class="count">{{ order.price }} ₽/шт</p>
             </div>
-            <div class="menu">
-                <p class="number">2</p>
-                <img class="service"  src="assets/images/profile/TwoGis.webp" alt="">
-                <div class="object">
-                    <p class="name">ТатМак Премиум</p>
-                    <p class="date">01 Янв 2025</p>
-                </div>
-                <div class="data">
-                    <p class="progress">Выполнено: 5/10</p>
-                    <p class="adress">ул. Николая Ершова, 4/2, Казань</p>
-                </div>
-                <div class="rating">
-                    <div class="rate-stars">
-                      <p class="rate">{{ rating | number: '1.2-2' }}</p>
-                      <div class="stars">
-                        <ng-container *ngFor="let star of stars; let i = index">
-                          <svg
-                            width="17.4"
-                            height="16.62"
-                            viewBox="0 0 24 22"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <defs>
-                              <linearGradient id="grad{{i}}" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" [attr.stop-color]="star.leftColor" />
-                                <stop offset="50%" [attr.stop-color]="star.leftColor" />
-                                <stop offset="50%" [attr.stop-color]="star.rightColor" />
-                                <stop offset="100%" [attr.stop-color]="star.rightColor" />
-                              </linearGradient>
-                            </defs>
-                            <path
-                              [attr.fill]="'url(#grad' + i + ')'"
-                              d="M12 0L15.09 7.36L23.18 8.51L17.09 13.97L18.18 22L12 18.18L5.82 22L6.91 13.97L0.82 8.51L8.91 7.36L12 0Z"
-                            />
-                          </svg>
-                        </ng-container>
-                      </div>
-                    </div>
-                    <p class="summa">387 оценок</p>
-                </div>
-                <p class="count">150 ₽/шт</p>
-            </div>
-        </div>
+          </div>
+          
     </div>
     <div class="right-part">
         <div class="right-top-part">
@@ -176,27 +133,49 @@
         </div>
         <div class="right-bottom-part">
             <p class="title">Добавленные организации</p>
-            <div class="menu">
-                <p class="number">1</p>
-                <img class="service"  src="assets/images/profile/TwoGis.webp" alt="">
+        
+            <div class="menu" *ngFor="let org of organizations; let i = index">
+                <p class="number">{{ i + 1 }}</p>
+                <img class="service" [src]="getPlatformImage(org.platform)" alt="">
                 <div class="object">
-                    <p class="name">ТатМак Премиум</p>
-                    <p class="adress">ул. Николая Ершова, 4/2, Казань</p>
+                    <p class="name">{{ org.name }}</p>
+                    <p class="adress">{{ org.address }}</p>
                 </div>
                 <img class="delete-img" src="assets/images/profile/delete.webp" alt="">
             </div>
-            <div class="menu">
-                <p class="number">2</p>
-                <img class="service" src="assets/images/profile/TwoGis.webp" alt="">
-                <div class="object">
-                    <p class="name">ТатМак Премиум</p>
-                    <p class="adress">ул. Николая Ершова, 4/2, Казань </p>
-                </div>
-                <img class="delete-img" src="assets/images/profile/delete.webp" alt="">
-            </div>
-
-            <div class="add">
+        
+            <div class="add" (click)="openAddOrgModal()">
                 <p>ДОБАВИТЬ НОВУЮ</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" *ngIf="isAddOrgOpen">
+    <div class="add-org">
+        <img src="assets/icons/profile/close.webp" alt="Закрыть" (click)="closeAddOrgModal()">
+        <div class="module">
+            <p>Ссылка</p>
+            <input type="text" placeholder="Вставьте ссылку на организацию" [(ngModel)]="orgLink" (input)="validateLink()">
+            <p class="error" *ngIf="linkError">{{ linkError }}</p>
+            <div class="buttons">
+                <button class="left" (click)="closeAddOrgModal()">ОТМЕНА</button>
+                <button class="right" (click)="addOrganization()" [disabled]="!isLinkValid">ДОБАВИТЬ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" *ngIf="isTopUpOpen">
+    <div class="add-org">
+        <img src="assets/icons/profile/close.webp" alt="Закрыть" (click)="closeTopUpModal()">
+        <div class="module">
+            <p>Сумма пополнения</p>
+            <input type="number" placeholder="Введите сумму" [(ngModel)]="topUpAmount" min="1">
+            <p class="error" *ngIf="topUpError">{{ topUpError }}</p>
+            <div class="buttons">
+                <button class="left" (click)="closeTopUpModal()">ОТМЕНА</button>
+                <button class="right" (click)="confirmTopUp()">ПОПОЛНИТЬ</button>
             </div>
         </div>
     </div>
