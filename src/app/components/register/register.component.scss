@@ -55,11 +55,11 @@
 
 h1 {
   margin-top: 0;
-  color: #100f14;
+  color: #153060;
   text-align: center;
-  font-size: clamp(20px, 2vw, 32px);
+  font-size: clamp(20px, 2vw, 40px);
   text-align: left;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .register-switch {
@@ -85,7 +85,7 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   color: #9794aa;
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(12px, 1vw, 16px);
 }
 
 input {
@@ -94,7 +94,7 @@ input {
   padding: 20px 15px;
   border: 1px solid #cbcad7;
   border-radius: 10px;
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(12px, 1vw, 16px);
   color: #49475a;
 
   &.active {
@@ -153,4 +153,23 @@ input {
 /* Добавляем отступ справа для поля пароля, чтобы текст не накладывался на кнопку */
 .password-input-container input {
   padding-right: 40px;
+}
+
+.error {
+  color: #e53935; // Красный цвет для ошибок
+  font-size: clamp(12px, 1vw, 16px);
+  margin-top: 4px;
+  display: block;
+}
+
+.server-error {
+  color: #e53935;
+  background: #fff0f0;
+  border: 1px solid #e53935;
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-top: 16px;
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(12px, 1vw, 16px);
 }

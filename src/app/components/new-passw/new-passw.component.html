@@ -1,63 +1,109 @@
-<p>new-passw works!</p>
 <div class="NewPassw-page">
-  
   <!-- Левое фоновое изображение -->
   <div class="background-image left-image"></div>
-  
+
   <div class="NewPassw-container">
     <h1>Новый пароль</h1>
-    <div class="NewPassw-switch">Установите новый пароль для своей учетной записи, чтобы вы могли войти в систему и получить доступ ко всем функциям.</div>
-    
+    <div class="NewPassw-switch">
+      Установите новый пароль для своей учетной записи, чтобы вы могли войти в
+      систему и получить доступ ко всем функциям.
+    </div>
+
     <form [formGroup]="NewPasswForm" (ngSubmit)="onSubmit()">
       <div class="form-group password-group">
         <label for="new-password">Введите новый пароль</label>
         <div class="password-input-container">
-          <input 
-            id="new-password" 
-            [type]="showPassword ? 'text' : 'password'" 
-            formControlName="password" 
+          <input
+            id="new-password"
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
             placeholder="Не менее 8 символов"
-          >
-          <button 
-            type="button" 
-            class="toggle-password" 
+          />
+          <button
+            type="button"
+            class="toggle-password"
             (click)="togglePasswordVisibility()"
           >
             <ng-container *ngIf="!showPassword">
-              <img src="assets/images/eyeopen.svg" alt="eye">
+              <img src="assets/images/eyeopen.svg" alt="eye" />
             </ng-container>
             <ng-container *ngIf="showPassword">
-              <img src="assets/images/eyeclosed.svg" alt="eye">
+              <img src="assets/images/eyeclosed.svg" alt="eye" />
             </ng-container>
           </button>
+        </div>
+        <div
+          class="error"
+          *ngIf="
+            NewPasswForm.get('password')?.touched &&
+            NewPasswForm.get('password')?.invalid
+          "
+        >
+          <span *ngIf="NewPasswForm.get('password')?.errors?.['required']"
+            >Поле обязательно</span
+          >
+          <span *ngIf="NewPasswForm.get('password')?.errors?.['minlength']"
+            >Минимум 8 символов</span
+          >
         </div>
       </div>
 
       <div class="form-group password-group">
         <label for="confirm-password">Введите пароль повторно</label>
         <div class="password-input-container">
-          <input 
-            id="confirm-password" 
-            [type]="showPassword ? 'text' : 'password'" 
-            formControlName="confirmPassword" 
-          >
-          <button 
-            type="button" 
-            class="toggle-password" 
+          <input
+            id="confirm-password"
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="confirmPassword"
+            placeholder="Повторите пароль"
+          />
+          <button
+            type="button"
+            class="toggle-password"
             (click)="togglePasswordVisibility()"
           >
             <ng-container *ngIf="!showPassword">
-              <img src="assets/images/eyeopen.svg" alt="eye">
+              <img src="assets/images/eyeopen.svg" alt="eye" />
             </ng-container>
             <ng-container *ngIf="showPassword">
-              <img src="assets/images/eyeclosed.svg" alt="eye">
+              <img src="assets/images/eyeclosed.svg" alt="eye" />
             </ng-container>
           </button>
         </div>
+        <div
+          class="error"
+          *ngIf="
+            NewPasswForm.get('confirmPassword')?.touched &&
+            NewPasswForm.get('confirmPassword')?.invalid
+          "
+        >
+          <span
+            *ngIf="NewPasswForm.get('confirmPassword')?.errors?.['required']"
+            >Поле обязательно</span
+          >
+        </div>
       </div>
-      
-      <button type="submit" class="NewPassw-button">ОБНОВИТЬ ПАРОЛЬ</button>
+
+      <div
+        class="error"
+        *ngIf="NewPasswForm.errors?.['passwordsMismatch'] && (NewPasswForm.get('confirmPassword')?.touched || NewPasswForm.get('password')?.touched)"
+      >
+        Пароли не совпадают
+      </div>
+
+      <button
+        type="submit"
+        class="NewPassw-button"
+        [disabled]="NewPasswForm.invalid"
+      >
+        ОБНОВИТЬ ПАРОЛЬ
+      </button>
     </form>
+
+    <div class="server-error" *ngIf="serverError">{{ serverError }}</div>
+    <div class="success" *ngIf="success">
+      Пароль успешно изменён! Теперь вы можете войти с новым паролем.
+    </div>
   </div>
 
   <!-- Правое фоновое изображение -->

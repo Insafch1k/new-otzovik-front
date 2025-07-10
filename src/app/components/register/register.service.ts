@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RegisterService {
-  private apiUrl = 'http://192.168.70.149:5000/api/register'; // ваш адрес бэкенда
-
+  private apiUrl = 'http://192.168.31.200:5000/api/register'; // ваш адрес бэкенда
   constructor(private http: HttpClient) {}
 
   register(username: string, email: string, password: string): Observable<any> {

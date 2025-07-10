@@ -26,7 +26,7 @@ export const APP_ROUTES: Routes = [
   {
     path: 'register',
     loadChildren: () =>
-      import('./components/registr/register.routes').then((m) => m.default),
+      import('./components/register/register.routes').then((m) => m.default),
   },
   {
     path: 'new-passw',

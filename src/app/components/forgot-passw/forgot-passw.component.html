@@ -1,28 +1,36 @@
-<p>forgot-passw works!</p>
-<div class="auth-page">
-  
+<div class="forgot-passw-page">
   <!-- Левое фоновое изображение -->
   <div class="background-image left-image"></div>
-  
-  <div class="auth-container">
+
+  <div class="forgot-passw-container">
     <h1>Забыли пароль</h1>
-    <div class="auth-switch">
-Введите свой адрес электронной почты для верификации, мы вышлем 4-значный код на ваш электронный адрес.
+    <div class="forgot-passw-switch">
+      Введите свой адрес электронной почты для верификации, мы вышлем ссылку для
+      восстановления пароля на ваш email.
     </div>
-    
-    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
-        
+    <form [formGroup]="forgotForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="email">Почта</label>
-        <input 
-          id="email" 
-          type="email" 
-          formControlName="email" 
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
           placeholder="Введите свой почтовый адрес"
-        >
+          [class.active]="email?.touched && email?.invalid"
+        />
+        <div *ngIf="submitted && email?.invalid" class="error-message">
+          <span *ngIf="email?.errors?.['required']">Введите email</span>
+          <span *ngIf="email?.errors?.['email']">Некорректный email</span>
+        </div>
       </div>
-      <button type="submit" class="auth-button">ПРОДОЛЖИТЬ</button>
+      <button type="submit" class="forgot-passw-button" [disabled]="loading">
+        ПРОДОЛЖИТЬ
+      </button>
     </form>
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
   </div>
 
   <!-- Правое фоновое изображение -->

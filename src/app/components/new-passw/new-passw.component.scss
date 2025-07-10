@@ -83,7 +83,7 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   color: #9794AA;
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(12px, 1vw, 16px);
 }
 
 input {
@@ -92,7 +92,7 @@ input {
   padding: 20px 15px;
   border: 1px solid #CBCAD7;
   border-radius: 10px;
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(12px, 1vw, 16px);
   color: #49475A;
   
     &.active {
