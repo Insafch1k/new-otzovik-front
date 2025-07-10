@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  private apiUrl = 'http://localhost:3000/api/auth'; // Замените на ваш адрес бэкенда
+export class LoginService {
+  private apiUrl = 'http://192.168.31.200:5000/api/login'; 
 
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, { email, password });
+    return this.http.post(this.apiUrl, { email, password });
   }
 }

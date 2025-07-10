@@ -1,4 +1,4 @@
-.auth-page {
+.login-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +33,7 @@
   background-image: url("/assets/images/pencil.svg"); /* Путь к левой картинке */
 }
 
-.auth-container {
+.login-container {
   background-color: rgba(255, 255, 255, 0.5);  
   padding: clamp(45px, 5vw, 81px) clamp(15px, 3vw, 55px);
   border-radius: 10px;
@@ -48,26 +48,28 @@
 
 h1 {
   margin-top: 0;
-  color: #100f14;
+  color: #153060;
   text-align: center;
-  font-size: clamp(20px, 2vw, 32px);
+  font-size: clamp(20px, 2vw, 40px);
   text-align: left;
-  font-weight: 600;
+  font-weight: 300;
 }
 
-.auth-switch {
+.login-switch {
   margin-top: clamp(1px, 2vw, 20px);
   margin-bottom: clamp(15px, 3vw, 40px);
   text-align: center;
   color: #828282;
   text-align: left;
   font-size: clamp(12px, 1vw, 16px);
+  font-weight: 300;
 }
 
-.auth-switch a {
+.login-switch a {
   color: #5454fe;
   text-decoration: underline;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .form-group {
@@ -78,7 +80,7 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   color: #9794aa;
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(12px, 1vw, 16px);
 }
 
 input {
@@ -87,7 +89,7 @@ input {
   padding: 20px 15px;
   border: 1px solid #cbcad7;
   border-radius: 10px;
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(12px, 1vw, 16px);
   color: #49475a;
 
   &.active {
@@ -95,7 +97,7 @@ input {
   }
 }
 
-.auth-button {
+.login-button {
   width: 100%;
   height: clamp(40px, 3.5vw, 59px);
   padding: 0.75rem;
@@ -109,11 +111,11 @@ input {
   margin-top: clamp(10px, 2vw, 25px);
 }
 
-.auth-button:hover {
+.login-button:hover {
   background-color: #5454fe;
 }
 
-.auth-button:disabled {
+.login-button:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
 }
@@ -140,4 +142,38 @@ input {
 /* Добавляем отступ справа для поля пароля, чтобы текст не накладывался на кнопку */
 .password-input-container input {
   padding-right: 40px;
+}
+
+.forgot-passw-switch {
+  margin-top: 8px;
+  text-align: center;
+  color: #828282;
+  text-align: left;
+  font-size: clamp(12px, 1vw, 16px);
+}
+
+.forgot-passw-switch a {
+  color: #5454fe;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+.error {
+  color: #e53935; // Красный цвет для ошибок
+  font-size: clamp(12px, 1vw, 16px);
+  margin-top: 4px;
+  display: block;
+}
+
+.server-error {
+  color: #e53935;
+  background: #fff0f0;
+  border: 1px solid #e53935;
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-top: 16px;
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(12px, 1vw, 16px);
 }
