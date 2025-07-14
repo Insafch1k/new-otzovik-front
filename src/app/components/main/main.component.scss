@@ -164,6 +164,7 @@ h1 {
   pointer-events: none;
   z-index: 3;
   left: 122px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .fivestars-img-top {
@@ -284,17 +285,29 @@ h1 {
 .offers-card-3 {
   background-color: #5454fe;
   position: relative;
-  z-index: 1;
+  // z-index: 10;
 }
 
-.darkstar-img {
+.offers-card-3::after {
+  content: "";
   position: absolute;
-  top: -140px;
-  right: -140px;
-  height: auto;
-  pointer-events: none;
+  background: url("../../../assets/Main/Offers/darkstar.svg") no-repeat;
+  object-fit: cover;
+  width: 235px;
+  height: 235px;
+  top: -130px;
+  right: -30px;
   z-index: 0;
 }
+
+// .darkstar-img {
+//   position: absolute;
+//   top: -140px;
+//   right: -140px;
+//   height: auto;
+//   pointer-events: none;
+//   z-index: -1;
+// }
 
 .offers-card-title {
   font-family: Inter, sans-serif;
@@ -440,4 +453,229 @@ h1 {
   text-align: center;
   color: #333b69;
   margin-top: 40px;
+}
+
+@media (max-width: 360px) {
+  .main {
+    padding: 0;
+  }
+
+  .content-box {
+    padding: 0 20px;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .welcome {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    margin-top: 0;
+    display: block;
+    width: fit-content;
+  }
+
+  .phone {
+    display: none;
+  }
+
+  h1 {
+    font-size: 16px;
+    max-width: 247px;
+  }
+
+  .welcome-text {
+    margin-top: 20px;
+    font-size: 10px;
+    max-width: 247px;
+  }
+
+  .role-btn {
+    width: 319px;
+    height: 110px;
+    padding: 15px;
+  }
+
+  .column-btn-1 {
+    max-height: 80px;
+  }
+
+  .role-title {
+    font-size: 16px;
+  }
+
+  .role-text {
+    font-size: 10px;
+  }
+
+  .role-img {
+    width: auto;
+    height: 100px;
+  }
+
+  .customer-btn {
+    margin-top: 45px;
+  }
+
+  .executor-btn {
+    margin-top: 10px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+  .colummn-2 {
+    display: none;
+  }
+
+  .args {
+    grid-template-areas:
+      "title"
+      "cards";
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+  }
+
+  .args-cards {
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+  }
+
+  .args-card {
+    width: 320px;
+    height: 258px;
+    padding: 15px 20px 25px;
+    margin-bottom: 0;
+  }
+
+  .args-card-img {
+    max-width: 274px;
+    width: auto;
+    height: 140px;
+  }
+
+  .args-card-title {
+    font-size: 14px;
+  }
+
+  .args-card-text {
+    margin-top: 15px;
+    font-size: 12px;
+  }
+
+  .order-title {
+    margin-top: 30px;
+    font-size: 16px;
+    text-align: end;
+  }
+
+  .order-text {
+    font-size: 12px;
+  }
+
+  .offers {
+    margin-top: 30px;
+  }
+
+  .offers-cards {
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  .offers-card {
+    width: 320px;
+    height: 152px;
+    padding: 35px;
+  }
+
+  .offers-card-title {
+    font-size: 14px;
+  }
+
+  .offers-card-text {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+
+  .robothand-img {
+    position: absolute;
+    bottom: -30px;
+    left: -60px;
+    height: 140px;
+    pointer-events: none;
+  }
+
+  .offers-card-3::after {
+    display: none;
+  }
+
+  .platforms {
+    margin-top: 30px;
+  }
+
+  .platforms-cards {
+    flex-direction: column;
+    gap: 70px;
+    margin-top: 40px;
+  }
+
+  .platform-card {
+    outline: 11px solid #ffff;
+    width: 234px;
+    height: 152px;
+  }
+
+  .platform-card-img {
+    max-width: 133px;
+    max-height: 113px;
+  }
+
+  .platform-title {
+    font-size: 12px;
+  }
+
+  .income {
+    margin: 60px 0 30px;
+    grid-template-areas:
+      "title"
+      "cards";
+    grid-template-columns: 1fr;
+  }
+
+  .income-title {
+    text-align: end;
+  }
+
+  .income-cards {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    align-items: start;
+  }
+
+  .income-card {
+    width: 320px;
+    height: 258px;
+    padding: 20px;
+    margin-bottom: 0;
+  }
+
+  .income-card-img {
+    max-width: 181px;
+    height: auto;
+  }
+
+  .income-card-title {
+    font-size: 14px;
+  }
+
+  .income-card-text {
+    font-size: 12px;
+    margin-top: 15px;
+  }
 }
